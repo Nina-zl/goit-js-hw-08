@@ -94,79 +94,19 @@ function createMarkup(arr) {
 // console.log(createMarkup(images));
 
 
-// function handleClick(event) {
-// if(event.target === event.currentTarget) {
-// return;
-// }
-
-// const currentProduct = event.target.closest(`.gallery-item`);
-// const id = currentProduct.dataset.id;
-// console.log(id);
-
-    
-// }
-
 function handleClick(event) {
-    if(!event.target.classList.contains ("gallery-image")) {
-        return;
+if (!event.target.classList.contains("gallery-image")) {
+return;
 }
+
+const imageSource = event.target.dataset.source;
+const imageAlt = event.target.alt;
+  
 const instance = basicLightbox.create(`
-    div class="modal">
-    `<img src="${imageUrl}" width="800" height="600">
-    <h2>${description}</h2>
-    `);
+    <div class="modal">
+    <img src="${imageSource}" alt="${imageAlt}"/>
+    <h2>${imageAlt}</h2>
+    </div>
+    `)
   instance.show();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const galleryMarkup = images
-//   .map(
-//     ({ preview, original, description }) => `
-//   <li class="gallery-item">
-//     <a class="gallery-link" href="${original}">
-//       <img
-//         class="gallery-image"
-//         src="${preview}"
-//         data-source="${original}"
-//         alt="${description}"
-//       />
-//     </a>
-//   </li>`
-//   )
-//   .join("");
-
-// gallery.insertAdjacentHTML("beforeend", galleryMarkup);
-
-// gallery.addEventListener("click", (event) => {
-//   event.preventDefault(); // Забороняємо завантаження зображення
-
-//   if (event.target.nodeName !== "IMG") return;
-
-//   const largeImageUrl = event.target.dataset.source;
-//   openModal(largeImageUrl);
-// });
-
-// function openModal(imageUrl) {
-//   const instance = basicLightbox.create(
-//     `<img src="${imageUrl}" width="800" height="600">`
-//   );
-//   instance.show();
-// }
-
-
-
-
